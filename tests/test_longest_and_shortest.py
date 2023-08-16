@@ -13,3 +13,9 @@ class TestMain(unittest.TestCase):
     
     def test_success(self):
         self.assertEqual(longest_and_shortest_course(self.courses, self.mentors, self.durations), {'shortest': 'Python-разработчик с нуля', 'longest': 'Fullstack-разработчик на Python, Frontend-разработчик с нуля'})
+
+    @unittest.expectedFailure
+    def test_not_enough_courses(self):
+        courses = self.courses.copy()
+        courses.pop()
+        self.assertEqual(longest_and_shortest_course(courses, self.mentors, self.durations), {'shortest': 'Python-разработчик с нуля', 'longest': 'Fullstack-разработчик на Python, Frontend-разработчик с нуля'})
