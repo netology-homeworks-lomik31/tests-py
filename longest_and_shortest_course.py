@@ -12,9 +12,12 @@ def main(courses, mentors, durations):
     for i in courses_list:
         if (i["duration"] == a): max_l.append(i)
         elif (i["duration"] == b): min_l.append(i)
-    max_s = ", ".join(max_l)
-    min_s = ", ".join(min_l)
-
+    max_s = ""
+    min_s = ""
+    for i in max_l:
+        max_s += f"{i['title']}, "
+    for i in min_l:
+        min_s += f"{i['title']}, "
     # найдите самое маленькое и самое большое значение длительности курса
     # подсказка: используйте функции min и max для списка durations
 
@@ -29,4 +32,4 @@ def main(courses, mentors, durations):
 
 
     # допишите конструкцию вывода результата. можете использовать string.join()
-    return {"shortest": min_s, "longest": max_s}
+    return {"shortest": min_s[:-2], "longest": max_s[:-2]}
