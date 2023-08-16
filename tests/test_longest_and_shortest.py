@@ -1,4 +1,5 @@
 import unittest
+from longest_and_shortest_course import main as longest_and_shortest_course
 
 class TestMain(unittest.TestCase):
     mentors = [
@@ -9,3 +10,6 @@ class TestMain(unittest.TestCase):
     ]
     courses = ["Java-разработчик с нуля", "Fullstack-разработчик на Python", "Python-разработчик с нуля", "Frontend-разработчик с нуля"]
     durations = [14, 20, 12, 20]
+    
+    def test_success(self):
+        self.assertEqual(longest_and_shortest_course(self.courses, self.mentors, self.durations), {'shortest': 'Python-разработчик с нуля', 'longest': 'Fullstack-разработчик на Python, Frontend-разработчик с нуля'})
