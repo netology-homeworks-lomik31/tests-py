@@ -11,3 +11,7 @@ class TestMain(unittest.TestCase):
             ["Владимир Чебукин", "Эдгар Нуруллин", "Евгений Шек", "Валерий Хаслер", "Татьяна Тен", "Александр Фитискин", "Александр Шлейко", "Алена Батицкая", "Александр Беспоясов", "Денис Ежков", "Николай Лопин", "Михаил Ларченко"]
         ]
     durations = [14, 20, 12, 20]
+
+    def test_success(self):
+        self.assertEqual(relationship(self.courses, self.mentors, self.durations),
+        {'relationship': False, 'courseDurationsList': [2, 0, 1, 3], 'courseMentorsCountList': [2, 3, 1, 0]})
