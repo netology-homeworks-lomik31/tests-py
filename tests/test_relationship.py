@@ -15,3 +15,10 @@ class TestMain(unittest.TestCase):
     def test_success(self):
         self.assertEqual(relationship(self.courses, self.mentors, self.durations),
         {'relationship': False, 'courseDurationsList': [2, 0, 1, 3], 'courseMentorsCountList': [2, 3, 1, 0]})
+    
+    @unittest.expectedFailure
+    def test_not_enough_arguments(self):
+        courses = self.courses.copy()
+        courses.pop()
+        self.assertEqual(relationship(courses, self.mentors, self.durations),
+        {'relationship': False, 'courseDurationsList': [2, 0, 1, 3], 'courseMentorsCountList': [2, 3, 1, 0]})
