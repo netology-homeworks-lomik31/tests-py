@@ -16,3 +16,9 @@ class TestMain(unittest.TestCase):
         mentors = self.mentors.copy()
         mentors = map(lambda i: map(lambda j: j.split(" ")[0], i), mentors)
         self.assertEqual(unique_mentors(self.mentors), "Адилет, Азамат, Александр, Алексей, Алена, Анатолий, Анна, Антон, Вадим, Валерий, Владимир, Денис, Дмитрий, Евгений, Елена, Иван, Илья, Кирилл, Константин, Максим, Михаил, Никита, Николай, Олег, Павел, Ринат, Роман, Сергей, Татьяна, Тимур, Филипп, Эдгар, Юрий")
+
+    def test_wrong_format(self):
+        mentors = self.mentors.copy()
+        mentors = sum(mentors, [])
+        print(list(mentors))
+        self.assertEqual(unique_mentors(self.mentors), "Адилет, Азамат, Александр, Алексей, Алена, Анатолий, Анна, Антон, Вадим, Валерий, Владимир, Денис, Дмитрий, Евгений, Елена, Иван, Илья, Кирилл, Константин, Максим, Михаил, Никита, Николай, Олег, Павел, Ринат, Роман, Сергей, Татьяна, Тимур, Филипп, Эдгар, Юрий")
