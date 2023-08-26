@@ -30,3 +30,9 @@ class TestDisk(unittest.TestCase):
         }
         res_test = requests.get("https://cloud-api.yandex.net/v1/disk/resources", headers=self.d.headers, params=params)
         self.assertEqual(res_test.status_code, 200)
+
+    def testWrongPath(self):
+        fName = "biba/test3"
+        res = self.d.createFolder(fName)
+
+        self.assertEqual(res.status_code, 409)
