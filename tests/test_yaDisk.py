@@ -2,10 +2,11 @@ import requests, unittest
 from disk import Disk
 
 class TestDisk(unittest.TestCase):
+    with open("./tests/yaDisk") as f:
+        config = f.read()
+
     def testSuccess(self):
-        with open("./tests/yaDisk") as f:
-            config = f.read()
-        d = Disk(config)
+        d = Disk(self.config)
         fName = "amogus"
         res = d.createFolder(fName)
         self.assertEqual(res.status_code, 201)
